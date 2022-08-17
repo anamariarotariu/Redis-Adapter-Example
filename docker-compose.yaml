@@ -1,0 +1,16 @@
+version: "3.9"
+services:
+  app:
+    build: ./
+    working_dir: /app
+    volumes:
+      - ./:/app
+    links:
+      - mc
+      - redis
+
+  mc:
+    image: memcached
+  redis:
+      image: redis
+
